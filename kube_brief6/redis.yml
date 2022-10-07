@@ -1,3 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redisclaim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+  storageClassName: redisstor
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,6 +26,10 @@ spec:
       labels:
         app: redislb
     spec:
+      volumes: 
+      - name: vol
+        persistentVolumeClaim:
+          claimName: redisclaim
       containers:
       - name: redis
         image: redis
@@ -29,6 +45,9 @@ spec:
         ports:
         - containerPort: 6379
           name: redis
+        volumeMounts:
+        - name: vol
+          mountPath: "/data"
 ---
 apiVersion: v1
 kind: Service
