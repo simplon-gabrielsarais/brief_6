@@ -17,7 +17,7 @@ spec:
       containers:
       - name: redis
         image: redis
-        args: ["--requirepass", "$(REDIS_PWD)"]
+        args: ["--requirepass","$(REDIS_PWD)"]
         env:
         - name: ALLOW_EMPTY_PASSWORD
           value: "no"
