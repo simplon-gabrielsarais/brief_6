@@ -6,3 +6,15 @@ provisioner: kubernetes.io/azure-disk
 parameters:
   skuName: Standard_LRS
 allowVolumeExpansion: true
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redisclaim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+  storageClassName: redisstor
