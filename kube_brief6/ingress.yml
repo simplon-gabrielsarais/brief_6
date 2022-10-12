@@ -5,7 +5,6 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
 spec:
-  spec:
   tls:
     - secretName: tls
   rules:
