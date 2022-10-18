@@ -1,5 +1,5 @@
 # DAT Brief 6
-[présentation](https://hackmd.io/eYNLlBf6R9iAoI-p6g2iYA)
+[présentation](https://hackmd.io/p/eYNLlBf6R9iAoI-p6g2iYA)
 ## architechture
 ```mermaid
 flowchart LR
